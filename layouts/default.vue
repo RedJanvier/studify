@@ -1,7 +1,8 @@
+<script lang="ts">
+</script>
+
 <template>
-  <div>
-    <div>
-      <slot/>
-    </div>
+  <div class="flex box-border">
+    <slot></slot>
   </div>
 </template>

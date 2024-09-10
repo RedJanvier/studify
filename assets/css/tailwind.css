@@ -19,7 +19,7 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
  
-    --primary: 0 0% 9%;
+    --primary: 250 57% 56%;
     --primary-foreground: 0 0% 98%;
  
     --secondary: 0 0% 96.1%;
@@ -34,6 +34,14 @@
     --ring: 0 0% 3.9%;
  
     --radius: 0.5rem;
+    --main-color: #6550cf;
+    --main-light-color: #d8d0ff;
+
+    --red-color: #cf5050;
+    --red-light-color: #ffd0d0;
+
+    --cyan-color: #50cfcf;
+    --cyan-light-color: #d0faff;
   }
  
   .dark {
@@ -75,4 +83,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+* {
+  box-sizing: border-box;
 }

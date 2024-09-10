@@ -1,50 +1,6 @@
-<script lang="ts" setup>
-import {
-  Search,
-} from 'lucide-vue-next'
+<script lang="ts">
+import { defineProps } from 'vue'
 import { Icon } from '@iconify/vue'
-
-import { computed, ref } from 'vue'
-import { refDebounced } from '@vueuse/core'
-// import { mails } from '../data/courses'
-// import type { Mail } from '../data/courses'
-
-// const isCollapsed = ref(false)
-// const selectedMail = ref<string | undefined>(mails[0].id)
-// const searchValue = ref('')
-// const debouncedSearch = refDebounced(searchValue, 250)
-
-// const filteredMailList = computed(() => {
-//   let output: Mail[] = []
-//   const searchValue = debouncedSearch.value?.trim()
-//   if (!searchValue) {
-//     output = mails
-//   }
-
-//   else {
-//     output = mails.filter((item) => {
-//       return item.name.includes(debouncedSearch.value)
-//         || item.email.includes(debouncedSearch.value)
-//         || item.name.includes(debouncedSearch.value)
-//         || item.subject.includes(debouncedSearch.value)
-//         || item.text.includes(debouncedSearch.value)
-//     })
-//   }
-
-//   return output
-// })
-
-// const unreadMailList = computed(() => filteredMailList.value.filter(item => !item.read))
-
-// const selectedMailData = computed(() => mails.find(item => item.id === selectedMail.value))
-
-// function onCollapse() {
-//   isCollapsed.value = true
-// }
-
-// function onExpand() {
-//   isCollapsed.value = false
-// }
 
 const settingsLinks = [
   {
@@ -117,30 +73,22 @@ const friendsList = [
   },
 ]
 
-const user = {
-  firstName: 'Jason',
-  lastName: 'Ranti',
-  progress: 32,
-  image: 'https://api.dicebear.com/9.x/open-peeps/svg?clothingColor=8fa7df,9ddadb,78e185&backgroundColor=b6e3f4,c0aede,d1d4f9&seed=Jason',
-}
 </script>
-
 <template>
-  <div class="flex sm:flex-col-reverse md:flex-row box-border">
-    <aside class="flex flex-col bg-white p-6 box-border md:static md:w-auto md:h-screen w-full fixed bottom-0 z-10 left-0">
-      <a href="/" class="text-6xl mb-14 hidden md:block"><h1>Studify</h1></a>
-      <div class="md:mt-10">
-        <p class="text-xs text-gray-600 pb-2 min-w-60 uppercase hidden md:block">Overview</p>
-        <ul class="flex justify-around md:justify-start md:grid gap-6">
-          <li :key="item.id" v-for="item in overviewLinks">
+  <aside class="flex flex-col p-6 box-border h-screen">
+      <a href="/" class="text-6xl mb-14 block"><h1>Studify</h1></a>
+      <div class="mt-10">
+        <p class="text-xs text-gray-600 pb-2 min-w-60 uppercase">Overview</p>
+        <ul class="grid gap-6">
+          <li :key="item.id" v-for="item in overviewList">
             <a :href="item.link" class="flex gap-2 items-center text-indigo" :style="item.active ? 'color: var(--main-color);' : ''">
               <Icon :icon="item.icon" width="28" height="28" />
-              <span :class="`text-black text-lg ${item.active ? '' : 'hidden'} md:block`">{{ item.text }}</span>
+              <span class="text-black text-lg">{{ item.text }}</span>
             </a>
           </li>
         </ul>
       </div>
-      <div class="mt-10 flex-1 hidden md:block">
+      <div class="mt-10 flex-1">
         <p class="text-xs text-gray-600 pb-2 min-w-48 uppercase">Friends</p>
         <ul class="grid gap-6">
           <li :key="item.id" v-for="item in friendsList">
@@ -156,7 +104,7 @@ const user = {
           </li>
         </ul>
       </div>
-      <div class=" hidden md:block">
+      <div class="">
         <p class="text-xs text-gray-600 pb-2 min-w-40 uppercase">Settings</p>
         <ul class="grid gap-4">
           <li :key="item.id" v-for="item in settingsLinks">
@@ -168,10 +116,4 @@ const user = {
         </ul>
       </div>
     </aside>
-    <main class="bg-gray-200 flex-1 mb-[76px] md:mb-0">
-      <Nav :user="user"></Nav>
-      <MailList :user="user" />
-    </main>
-  </div>
 </template>
-
