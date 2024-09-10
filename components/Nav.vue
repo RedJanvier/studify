@@ -43,8 +43,8 @@ import type { IUser } from '../data/courses'
       </div>
       <Separator orientation="vertical" class="border-black bg-gray-500 h-12 hidden md:block" />
       <div class="user flex gap-3 flex-1 justify-end">
-        <div class="user-image rounded-full overflow-hidden">
-          <img :src="`https://api.dicebear.com/9.x/open-peeps/svg?clothingColor=8fa7df,9ddadb,78e185&backgroundColor=b6e3f4,c0aede,d1d4f9&seed=${user.firstName}`" alt="profile" class="w-10"/>
+        <div class="user-image rounded-full overflow-hidden w-[36px] h-[36px]">
+          <img :src="`https://api.dicebear.com/9.x/open-peeps/svg?clothingColor=8fa7df,9ddadb,78e185&backgroundColor=b6e3f4,c0aede,d1d4f9&seed=${user.firstName}`" alt="profile" />
         </div>
         <b class="text-nowrap self-center hidden md:block">{{ user.firstName }} {{ user.lastName }}</b>
       </div>

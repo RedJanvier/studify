@@ -180,7 +180,7 @@ const courses = [
               <div class="icon p-2 rounded-full bg-white text-black ml-3"><Icon icon="mdi:arrow-right" /></div>
             </Button>
           </div>
-          <ScrollArea class="border rounded-md w-[92vw] md:w-[65vw] whitespace-nowrap">
+          <ScrollArea class="border rounded-md w-[92vw] md:w-[58vw] whitespace-nowrap">
             <ul class="flex gap-8 my-4 w-max">
               <li v-for="tag in tags" :key="tag.name" class="bg-white flex items-center p-3 rounded-3xl w-60 justify-between">
                 <div class="flex">
@@ -206,7 +206,7 @@ const courses = [
               <button class="rounded-full bg-[var(--main-color)] text-[white] p-3"><Icon icon="mdi:arrow-right" /></button>
             </div>
           </div>
-          <ScrollArea class="border rounded-md w-[92vw] md:w-[65vw] whitespace-nowrap">
+          <ScrollArea class="border rounded-md w-[92vw] md:w-[58vw] whitespace-nowrap">
             <div class="bg-white p-4 rounded-2xl pr-0">
               <div class="flex overflow-x-scroll snap-x hide-scroll-bar">
                 <ul class="flex flex-nowrap">
@@ -274,7 +274,7 @@ const courses = [
           </ul>
         </div>
 
-        <div class="bg-white p-4 h-full rounded-2xl text-center hidden min-[1500px]:block">
+        <div class="bg-white p-4 h-full rounded-2xl w-[400px] text-center hidden min-[1500px]:block">
           <div class="flex justify-between">
             <p class="font-bold">Statistics</p>
             <div class="icon"><Icon icon="mdi:dots-vertical" width="22" height="22" /></div>
