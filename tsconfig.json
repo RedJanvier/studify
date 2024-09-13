@@ -1,4 +1,12 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "paths": {
+      "#app": ["./.nuxt/types/app"],
+      "#app/*": ["./.nuxt/types/app/*"]
+    }
+  }
 }

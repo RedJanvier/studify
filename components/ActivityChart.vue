@@ -1,22 +1,37 @@
 <script setup lang="ts">
-import { BarChart } from './ui/chart-bar'
+import { Bar } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
-const data = [
-  { name: 'Jan', total: 35},
-  { name: 'Feb', total: 46},
-  { name: 'Mar', total: 34},
-  { name: 'Apr', total: 60},
-  { name: 'May', total: 30},
-]
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+const data = [25, 46, 24, 60, 20];
+const backgroundColor = data.map(point => point >= 40 ? '#6550cf' : '#d8d0ff');
+const borderRadius = data.map(() => 10);
+
+const chartData = {
+  labels: [ '1-6', '7-12', '13-18', '19-24', '25-31' ],
+  datasets: [ { xAxisID: 'xAxis', data, backgroundColor, borderRadius } ]
+};
+const chartOptions = {
+  responsive: true,
+  plugins: {
+    legend: {
+      display: false
+    }
+  },
+  scales: {
+    xAxis: {
+      grid: {
+        display: false,
+      }
+    },
+  }
+};
 </script>
 
 <template>
-  <BarChart
-    class="h-[150px] bg-gray-100 rounded-2xl p-3 pl-0"
-    :data="data"
-    index="name"
-    :categories="['total']"
-    :showLegend="false"
-    :colors="['#6550cf', '#d8d0ff']"
+  <Bar
+    id="my-chart-id"
+    :options="chartOptions"
+    :data="chartData"
   />
 </template>
