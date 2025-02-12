@@ -16,6 +16,6 @@ const user = {
 </script>
 
 <template>
-  <MailList :user="user" />
+  <courses-list :user="user" />
 </template>
 
